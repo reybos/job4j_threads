@@ -5,8 +5,13 @@ public class ConsoleProgress implements Runnable {
     public void run() {
         int count = 0;
         char[] process = new char[] {'/', '|', '\\'};
-        while (!Thread.currentThread().isInterrupted()) {
-            System.out.print("\rLoading ... " + process[count++ % 3]);
+        try {
+            while (!Thread.currentThread().isInterrupted()) {
+                System.out.print("\rLoading ... " + process[count++ % 3]);
+                Thread.sleep(200);
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
     }
 
