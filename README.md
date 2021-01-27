@@ -5,8 +5,8 @@
 <p>В этом проекте собраны задачи решенные мною при изучении многопоточности в Java. </p>
 <h2>Multithreading. Разделы</h2>
 <ul>
-  <li>Threads</li>
-  <li>Общие ресурсы</li>
+  <li><a href="https://github.com/ReyBos/job4j_threads/tree/master/src/main/java/ru/job4j/concurrent">Threads</a></li>
+  <li><a href="https://github.com/ReyBos/job4j_threads/tree/master/src/main/java/ru/job4j/common/resources">Общие ресурсы</a></li>
   <li>Синхронизация ресурсов</li>
   <li>Wait, Notify, NotifyAll</li>
   <li>Non Blocking Algoritm</li>
