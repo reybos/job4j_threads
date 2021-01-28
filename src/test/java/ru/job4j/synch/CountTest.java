@@ -1,4 +1,4 @@
-package ru.job4j.resource.synchronization;
+package ru.job4j.synch;
 
 import org.junit.Test;
 import static org.hamcrest.Matchers.is;
