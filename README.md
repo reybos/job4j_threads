@@ -7,9 +7,9 @@
 <ul>
   <li><a href="https://github.com/ReyBos/job4j_threads/tree/master/src/main/java/ru/job4j/concurrent">Threads</a></li>
   <li><a href="https://github.com/ReyBos/job4j_threads/tree/master/src/main/java/ru/job4j/common/resources">Общие ресурсы</a></li>
-  <li>Синхронизация ресурсов</li>
-  <li>Wait, Notify, NotifyAll</li>
-  <li>Non Blocking Algoritm</li>
-  <li>Пулы</li>
-  <li><strong><a href="">Проект - Pooh JMS</a></strong></li>
+  <li><a href="https://github.com/ReyBos/job4j_threads/tree/master/src/main/java/ru/job4j/synch">Синхронизация ресурсов</a></li>
+  <li><a href="https://github.com/ReyBos/job4j_threads/tree/master/src/main/java/ru/job4j/wait">Wait, Notify, NotifyAll</a></li>
+  <li><a >Non Blocking Algoritm</a></li>
+  <li><a >Пулы</a></li>
+  <li><strong><a >Проект - Pooh JMS</a></strong></li>
 </ul>
