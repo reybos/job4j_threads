@@ -6,14 +6,23 @@ import static org.junit.Assert.assertEquals;
 
 public class SimpleBlockingQueueTest {
     @Test
-    public void whenExecute2Thread() {
-        SimpleBlockingQueue<Integer> queue = new SimpleBlockingQueue<>(3);
+    public void whenExecute2Thread() throws InterruptedException {
+        SimpleBlockingQueue<Integer> queue = new SimpleBlockingQueue<>();
         Thread consumer = new Thread(() -> {
             for (int i = 0; i < 5; i++) {
-                queue.poll();
+                try {
+                    queue.poll();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
         Thread producer = new Thread(() -> {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             for (int i = 0; i < 6; i++) {
                 queue.offer(i);
             }
