@@ -2,42 +2,40 @@ package ru.job4j.synch;
 
 import net.jcip.annotations.ThreadSafe;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @ThreadSafe
 public class UserStorage implements Storage<User>, Transferable {
-    private final List<User> users = new ArrayList<>();
+    private final Map<Integer, User> users = new HashMap<>();
 
     @Override
     public synchronized boolean add(User elem) {
-        return users.add(elem);
+        users.put(elem.getId(), elem);
+        return true;
     }
 
     @Override
     public synchronized boolean update(User elem) {
-        int index = users.indexOf(elem);
-        if (index == -1) {
+        if (!users.containsKey(elem.getId())) {
             return false;
         }
-        users.add(index, elem);
+        users.put(elem.getId(), elem);
         return true;
     }
 
     @Override
     public synchronized boolean delete(User elem) {
-        return users.remove(elem);
+        return users.remove(elem.getId()) != null;
     }
 
     @Override
     public synchronized boolean transfer(int fromId, int toId, int amount) {
-        int indexFrom = users.indexOf(new User(fromId));
-        int indexTo = users.indexOf(new User(toId));
-        if (indexFrom == -1 || indexTo == -1) {
+        if (!users.containsKey(fromId) || !users.containsKey(toId)) {
             return false;
         }
-        User userFrom = users.get(indexFrom);
-        User userTo = users.get(indexTo);
+        User userFrom = users.get(fromId);
+        User userTo = users.get(toId);
         if (userFrom.getAmount() - amount < 0) {
             return false;
         }
