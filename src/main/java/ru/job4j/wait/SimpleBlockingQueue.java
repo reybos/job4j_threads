@@ -29,4 +29,8 @@ public class SimpleBlockingQueue<T> {
         }
         return queue.poll();
     }
+
+    public boolean isEmpty() {
+        return queue.size() == 0;
+    }
 }
