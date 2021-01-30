@@ -5,7 +5,6 @@ import net.jcip.annotations.ThreadSafe;
 @ThreadSafe
 public class CountBarrier {
     private final Object monitor = this;
-    private volatile boolean flag = false;
     private final int total;
     private int count = 0;
 
@@ -21,14 +20,13 @@ public class CountBarrier {
     }
 
     public synchronized void await() {
-        while (!flag) {
+        while (count != total) {
             try {
                 monitor.wait();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
             System.out.println("Внутри await");
-            flag = true;
         }
     }
 }
