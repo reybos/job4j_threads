@@ -10,22 +10,17 @@ import java.util.Queue;
 public class SimpleBlockingQueue<T> {
     @GuardedBy("this")
     private final Queue<T> queue = new LinkedList<>();
-    private volatile boolean isPollStopped = true;
 
     public synchronized void offer(T value) {
-        queue.offer(value);
-        if (isPollStopped) {
-            isPollStopped = false;
+        if (isEmpty()) {
             notifyAll();
         }
+        queue.offer(value);
     }
 
     public synchronized T poll() throws InterruptedException {
-        if (isPollStopped) {
+        if (isEmpty()) {
             this.wait();
-        }
-        if (queue.size() == 1) {
-            isPollStopped = true;
         }
         return queue.poll();
     }
