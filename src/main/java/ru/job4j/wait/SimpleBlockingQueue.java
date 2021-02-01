@@ -12,14 +12,12 @@ public class SimpleBlockingQueue<T> {
     private final Queue<T> queue = new LinkedList<>();
 
     public synchronized void offer(T value) {
-        if (isEmpty()) {
-            notifyAll();
-        }
         queue.offer(value);
+        notifyAll();
     }
 
     public synchronized T poll() throws InterruptedException {
-        if (isEmpty()) {
+        while (isEmpty()) {
             this.wait();
         }
         return queue.poll();
