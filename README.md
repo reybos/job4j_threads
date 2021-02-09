@@ -11,5 +11,5 @@
   <li><a href="https://github.com/ReyBos/job4j_threads/tree/master/src/main/java/ru/job4j/wait">Wait, Notify, NotifyAll</a></li>
   <li><a href="https://github.com/ReyBos/job4j_threads/tree/master/src/main/java/ru/job4j/non/blocking">Non Blocking Algoritm</a></li>
   <li><a href="https://github.com/ReyBos/job4j_threads/tree/master/src/main/java/ru/job4j/pool">Пулы</a></li>
-  <li><strong><a >Проект - Pooh JMS</a></strong></li>
+  <li><strong><a href="https://github.com/ReyBos/job4j_pooh">Проект - Pooh JMS</a></strong></li>
 </ul>
